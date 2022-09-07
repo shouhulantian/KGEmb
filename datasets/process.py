@@ -21,10 +21,11 @@ def get_idx(path):
     for split in ["train", "valid", "test"]:
         with open(os.path.join(path, split), "r") as lines:
             for line in lines:
-                lhs, rel, rhs = line.strip().split("\t")
-                entities.add(lhs)
-                entities.add(rhs)
-                relations.add(rel)
+                content = line.strip().split("\t")
+                #lhs, rel, rhs = line.strip().split("\t")
+                entities.add(content[0])
+                entities.add(content[2])
+                relations.add(content[1])
     ent2idx = {x: i for (i, x) in enumerate(sorted(entities))}
     rel2idx = {x: i for (i, x) in enumerate(sorted(relations))}
     return ent2idx, rel2idx
