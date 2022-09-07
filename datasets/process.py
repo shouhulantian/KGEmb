@@ -22,7 +22,6 @@ def get_idx(path):
         with open(os.path.join(path, split), "r") as lines:
             for line in lines:
                 content = line.strip().split("\t")
-                #lhs, rel, rhs = line.strip().split("\t")
                 entities.add(content[0])
                 entities.add(content[2])
                 relations.add(content[1])
