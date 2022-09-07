@@ -44,7 +44,8 @@ def to_np_array(dataset_file, ent2idx, rel2idx):
     examples = []
     with open(dataset_file, "r") as lines:
         for line in lines:
-            lhs, rel, rhs = line.strip().split("\t")
+            content = line.strip().split("\t")
+            lhs, rel, rhs = content[0], content[1], content[2]
             try:
                 examples.append([ent2idx[lhs], rel2idx[rel], ent2idx[rhs]])
             except ValueError:
